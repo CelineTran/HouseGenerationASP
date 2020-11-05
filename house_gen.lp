@@ -57,7 +57,7 @@ good_land(XX,YY) :-
 :- construction(XX,YY, bed), terrain_neighbors(XX,YY, water, F_COUNT), F_COUNT > 0.
 :- construction(XX,YY, bed), terrain_neighbors(XX,YY, bridge, B_COUNT), B_COUNT > 0.
 :- construction(XX,YY, bed), terrain_neighbors(XX,YY, tree, T_COUNT), T_COUNT > 0.
-:- construction(XX,YY, bed), neighbors(XX,YY bed, COUNT)
+:- construction(XX,YY, bed), neighbors(XX,YY, bed, COUNT), COUNT > 0.
 
 :- construction(XX,YY,_), not good_land(XX,YY).     
 
