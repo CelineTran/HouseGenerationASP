@@ -62,8 +62,6 @@ edge(XX,YY) :- terrain_neighbors(XX,YY, _, COUNT), COUNT < 6.
 :- construction(XX,YY, bed), terrain_neighbors(XX,YY, bridge, B_COUNT), B_COUNT > 0.
 :- construction(XX,YY, bed), terrain_neighbors(XX,YY, tree, T_COUNT), T_COUNT > 0.
 
-:- cons
-
 :- construction(XX,YY,_), not good_land(XX,YY).     
 
 
