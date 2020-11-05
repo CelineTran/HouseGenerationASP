@@ -65,7 +65,7 @@ corner(XX,YY) :- terrain_neighbors(XX,YY, _, C_COUNT), C_COUNT < 3.
 
 :- construction(XX,YY, door), not corner(XX,YY).
 construction(XX, YY, door) :- terrain_immediate_neighbors(XX,YY, grass, G_COUNT), G_COUNT > 0.
-construction(XX, YY, door) :- terrain_immediate_neighbors(XX,YY, flower, G_COUNT), F_COUNT > 0.
+construction(XX, YY, door) :- terrain_immediate_neighbors(XX,YY, flower, F_COUNT), F_COUNT > 0.
 
 :- construction(XX,YY,_), not good_land(XX,YY).     
 
