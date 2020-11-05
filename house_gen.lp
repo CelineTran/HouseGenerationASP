@@ -58,7 +58,7 @@ edge(XX,YY) :- terrain_neighbors(XX,YY, _, COUNT), COUNT < 6.
 corner(XX,YY) :- terrain_neighbors(XX,YT, _, COUNT), COUNT < 4
 
 :- construction(XX,YY, bed), not edge(XX,YY).
-:- construction (XX,YY, door), not corner(XX,YY)
+:- construction (XX,YY, door), not corner(XX,YY).
 :- construction(XX,YY, bed), neighbors(XX,YY, bed, COUNT), COUNT > 0.
 :- construction(XX,YY, bed), terrain_neighbors(XX,YY, water, F_COUNT), F_COUNT > 0.
 :- construction(XX,YY, bed), terrain_neighbors(XX,YY, bridge, B_COUNT), B_COUNT > 0.
