@@ -57,20 +57,20 @@ good_land(XX,YY) :-
 edge(XX,YY) :- terrain_neighbors(XX,YY, _, E_COUNT), E_COUNT < 6.
 corner(XX,YY) :- terrain_neighbors(XX,YY, _, C_COUNT), C_COUNT < 3.
 
-:- construction(XX,YY, bed), not edge(XX,YY).
-:- construction(XX,YY, bed), not corner(XX,YY).
+:- construction(XX,YY, bed), edge(XX,YY).
+:- construction(XX,YY, bed), corner(XX,YY).
 :- construction(XX,YY, bed), neighbors(XX,YY, bed, COUNT), COUNT > 0.
 :- construction(XX,YY, bed), terrain_neighbors(XX,YY, water, W_COUNT), W_COUNT > 0.
 :- construction(XX,YY, bed), terrain_neighbors(XX,YY, bridge, B_COUNT), B_COUNT > 0.
 :- construction(XX,YY, bed), terrain_neighbors(XX,YY, tree, T_COUNT), T_COUNT > 0.
 
-:- construction(XX,YY, door), not edge(XX,YY).
-:- construction(XX,YY, door), not corner(XX,YY).
+:- construction(XX,YY, door), edge(XX,YY).
+:- construction(XX,YY, door), corner(XX,YY).
 %:- construction(XX,YY, door), terrain_immediate_neighbors(XX,YY, grass, G_COUNT), G_COUNT > 0.
 %:- construction(XX,YY, door), terrain_immediate_neighbors(XX,YY, flower, F_COUNT), F_COUNT > 0.
 
-:- construction(XX,YY, floor), not edge(XX,YY).
-:- construction(XX,YY, floor), not corner(XX,YY).
+:- construction(XX,YY, floor), edge(XX,YY).
+:- construction(XX,YY, floor), corner(XX,YY).
 
 
 :- construction(XX,YY,_), not good_land(XX,YY).     
