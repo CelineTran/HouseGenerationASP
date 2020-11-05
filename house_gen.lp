@@ -12,7 +12,7 @@ height(1..max_height).
 	width(XX), 
 	height(YY).
 
-0 {construction(XX, YY, CONSTRUCTION_TYPE) : construction_type(CONSTRUCTION_TYPE)} 1 :-
+0 {construction(XX,YY,CONSTRUCTION_TYPE) : construction_type(CONSTRUCTION_TYPE)} 1 :-
 	width(XX),
 	height(YY).
 
@@ -39,7 +39,7 @@ immediate_neighbors(XX,YY,TYPE, COUNT) :-
 					construction_type(TYPE).
 
 good_land(XX,YY) :- 
-	terrain(XX,YY, TYPE), TYPE != water, TYPE != bridge, TYPE != tree
+	terrain(XX,YY,TYPE), TYPE != water, TYPE != bridge, TYPE != tree
 
-:- construction(XX, YY, _), not good_land(XX,YY).                              
+:- construction(XX,YY,_), not good_land(XX,YY).                              
 
