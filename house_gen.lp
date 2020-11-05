@@ -43,12 +43,12 @@ terrain_neighbors(XX,YY,TYPE, COUNT) :-
 					terrain_type(TYPE).	
 	
 terrain_immediate_neighbors(XX,YY,TYPE, COUNT) :- 
-	COUNT =  {construction(XX,YY-1,TYPE);
-					construction(XX-1,YY,TYPE);
-					construction(XX+1,YY,TYPE);
-					construction(XX,YY+1,TYPE)},
-					construction(XX,YY,_),					
-					construction_type(TYPE).
+	COUNT =  {terrain(XX,YY-1,TYPE);
+					terrain(XX-1,YY,TYPE);
+					terrain(XX+1,YY,TYPE);
+					terrain(XX,YY+1,TYPE)},
+					terrain(XX,YY,_),					
+					terrain_type(TYPE).
 
 
 good_land(XX,YY) :- 
