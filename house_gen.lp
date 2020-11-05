@@ -39,7 +39,7 @@ immediate_neighbors(XX,YY,TYPE, COUNT) :-
 					construction_type(TYPE).
 
 good_land(XX,YY) :- 
-	terrain(XX,YY,TYPE), TYPE != water, TYPE != bridge, TYPE != tree
+	terrain(XX,YY,TYPE), TYPE != water, TYPE != bridge, TYPE != tree.
 
 :- construction(XX,YY,_), not good_land(XX,YY).                              
 
