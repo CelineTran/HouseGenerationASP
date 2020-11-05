@@ -54,8 +54,8 @@ immediate_neighbors(XX,YY,TYPE, COUNT) :-
 good_land(XX,YY) :- 
 	terrain(XX,YY,TYPE), TYPE != water, TYPE != bridge, TYPE != tree. 
 
-edge(XX,YY) :- terrain_neighbors(XX,YY, _, COUNT), COUNT < 6.
-corner(XX,YY) :- terrain_neighbors(XX,YT, _, COUNT), COUNT < 4.
+edge(XX,YY) :- terrain_neighbors(XX,YY, _, E_COUNT), E_COUNT < 6.
+corner(XX,YY) :- terrain_neighbors(XX,YT, _, C_COUNT), C_COUNT < 4.
 
 :- construction(XX,YY, bed), not edge(XX,YY).
 :- construction (XX,YY, door), not corner(XX,YY).
