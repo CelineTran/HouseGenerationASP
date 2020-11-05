@@ -54,7 +54,9 @@ immediate_neighbors(XX,YY,TYPE, COUNT) :-
 good_land(XX,YY) :- 
 	terrain(XX,YY,TYPE), TYPE != water, TYPE != bridge, TYPE != tree. 
 
-:- construction(XX,YY, bed), terrain_neighbors(XX,YY, water, F_COUNT), terrain_neighbors(XX, YY, bridge, B_COUNT), terrain_neighbors(XX,YY, tree, T_COUNT).
+:- construction(XX,YY, bed), terrain_neighbors(XX,YY, water, F_COUNT), F_COUNT > 0.
+:- construction(XX,YY, bed), terrain_neighbors(XX,YY, bridge, B_COUNT), B_COUNT > 0.
+:- construction(XX,YY, bed), terrain_neighbors(XX,YY, tree, T_COUNT), T_COUNT > 0.
 
 %:- construction(XX,YY,_), not good_land(XX,YY).     
 
