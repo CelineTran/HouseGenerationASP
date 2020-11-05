@@ -3,7 +3,7 @@
 #const max_height=10.
 
 construction_type(door;wall;floor;bed).
-terrain_type(grass;flower;bridge;water;tree)
+terrain_type(grass;flower;bridge;water;tree).
 
 width(1..max_width).
 height(1..max_height).
