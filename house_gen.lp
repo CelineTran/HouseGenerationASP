@@ -61,7 +61,7 @@ corner(XX,YY) :- terrain_neighbors(XX,YY, _, C_COUNT), C_COUNT < 3.
 :- {construction(XX,YY, door)} 1 . 
 
 :- construction(XX,YY, wall), terrain_immediate_neighbors(XX,YY,door, COUNT), COUNT > 3.
-:- construction(XX,YY, wall), terrain_immediate_neighbors(XX,YY,wall, COUNT), COUNT > 3.
+:- construction(XX,YY, wall), terrain_immediate_neighbors(XX,YY,wall, WL_COUNT), COUNT > 3.
 
 :- construction(XX,YY, bed), edge(XX,YY).
 :- construction(XX,YY, bed), corner(XX,YY).
