@@ -28,7 +28,19 @@ neighbors(XX,YY,TYPE, COUNT) :-
 					construction(XX,YY+1,TYPE);
 					construction(XX+1,YY+1,TYPE)},
 					construction(XX,YY,_),					
-					construction_type(TYPE).				
+					construction_type(TYPE).		
+
+terrain_neighbors(XX,YY,TYPE, COUNT) :- 
+	COUNT =  {terrain(XX-1,YY-1,TYPE);
+					terrain(XX,YY-1,TYPE);
+					terrain(XX+1,YY-1,TYPE);
+					terrain(XX-1,YY,TYPE);
+					terrain(XX+1,YY,TYPE);
+					terrain(XX-1,YY+1,TYPE);	
+					terrain(XX,YY+1,TYPE);
+					terrain(XX+1,YY+1,TYPE)},
+					terrain(XX,YY,_),					
+					terrain_type(TYPE).	
 	
 immediate_neighbors(XX,YY,TYPE, COUNT) :- 
 	COUNT =  {construction(XX,YY-1,TYPE);
@@ -38,10 +50,11 @@ immediate_neighbors(XX,YY,TYPE, COUNT) :-
 					construction(XX,YY,_),					
 					construction_type(TYPE).
 
+
 good_land(XX,YY) :- 
 	terrain(XX,YY,TYPE), TYPE != water, TYPE != bridge, TYPE != tree. 
 
-:- construction(XX,YY, bed), neighbors (XX,YY, floor, F_COUNT), F_COUNT != 8.
+:- construction(XX,YY, bed), terrain_neighbors(XX,YY, water, F_COUNT), terrain_neighbors(XX, YY, bridge, B_COUNT), terrain_neighbors(XX,YY, tree, T_COUNT).
 
 :- construction(XX,YY,_), not good_land(XX,YY).     
 
